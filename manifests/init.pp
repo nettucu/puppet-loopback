@@ -77,11 +77,11 @@ class loopback(
     }
 
     file { '/etc/systemd/scripts/loopback-setup':
-      ensure => present,
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0755',
-      source => template("${module_name}/loopback-setup.erb"),
+      ensure  => present,
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0755',
+      content => template("${module_name}/loopback-setup.erb"),
     }
   }
 }
