@@ -81,7 +81,7 @@ class loopback(
       owner  => 'root',
       group  => 'root',
       mode   => '0755',
-      source => template("puppet:///${module_name}/loopback-setup.erb"),
+      source => template("${module_name}/loopback-setup.erb"),
     }
   }
 }
