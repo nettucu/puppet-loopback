@@ -75,5 +75,13 @@ class loopback(
         creates => "${base_dir}/${loopback_file}",
       }
     }
+
+    file { '/etc/systemd/scripts/loopback-setup':
+      ensure => present,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0755',
+      source => template("puppet:///${module_name}/loopback-setup.erb"),
+    }
   }
 }
