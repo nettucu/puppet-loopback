@@ -35,14 +35,13 @@
 # Authors
 # -------
 #
-# Author Name <author@domain.com>
+# Catalin Trifu <ctrifu@gmail.com>
 #
 # Copyright
 # ---------
 #
 # Copyright 2016 Your name here, unless otherwise noted.
 #
-class loopback {
-
+class loopback() inherits loopback::params {
 
 }
