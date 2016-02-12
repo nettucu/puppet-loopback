@@ -42,6 +42,38 @@
 #
 # Copyright 2016 Your name here, unless otherwise noted.
 #
-class loopback() inherits loopback::params {
+class loopback(
+  $devices = {},
+) inherits loopback::params {
+  validate_hash($devices)
 
+  if size($devices) != 0 {
+    # install only if we have devices
+    include loopback::install
+  }
+
+  define loopack_device() {
+  }
+
+  $devices.each | $base_dir, $content | {
+    notify { $base_dir:
+      message => $content,
+    }
+    file { $base_dir:
+      ensure  => directory,
+      owner   => $content['owner'],
+      group   => $content['group'],
+      recurse => true,
+    }
+
+    $content['files'].each | $loopback_file, $sz | {
+      notify { $loopback_file:
+        message => $sz,
+      }
+      exec { $loopback_file:
+        command => "/usr/bin/dd if=/dev/zero of=${base_dir}/${loopback_file} bs=1M count=${sz}",
+        creates => "${base_dir}/${loopback_file}",
+      }
+    }
+  }
 }

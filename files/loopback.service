@@ -1,0 +1,17 @@
+[Unit]
+Description=Setup loop devices
+DefaultDependencies=false
+ConditionFileIsExecutable=/etc/systemd/scripts/loopback-setup
+Before=local-fs.target
+After=systemd-udev-settle.service
+Required=systemd-udev-settle.service
+
+[Service]
+Type=oneshot
+ExecStart=/etc/systemd/scripts/loopback-setup
+TimeoutSec=60
+RemainAfterExit=yes
+
+[Install]
+WantedBy=local-fs.target
+Also=systemd-udev-settle.service
