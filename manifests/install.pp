@@ -12,7 +12,7 @@ class loopback::install () {
     owner  => 'root',
     group  => 'root',
     mode   => '0664',
-    source => "puppet:///modules/${modulename}/loopback.service",
+    source => "puppet:///modules/${module_name}/loopback.service",
   }
 
   exec { 'systemd-daemon-reload':
