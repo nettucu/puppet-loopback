@@ -1,0 +1,15 @@
+{
+  "name": "ctrifu-loopback",
+  "version": "0.1.0",
+  "author": "Catalin Trifu",
+  "summary": "File based loopback - create, mount, automount by systemd",
+  "license": "Apache-2.0",
+  "source": "https://github.com/nettucu/puppet-loopback.git",
+  "project_page": "https://github.com/nettucu/puppet-loopback",
+  "issues_url": "https://github.com/nettucu/puppet-loopback/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
+
