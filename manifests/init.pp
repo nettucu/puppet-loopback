@@ -56,9 +56,6 @@ class loopback(
   }
 
   $devices.each | $base_dir, $content | {
-    notify { $base_dir:
-      message => $content,
-    }
     file { $base_dir:
       ensure  => directory,
       owner   => $content['owner'],
@@ -67,9 +64,6 @@ class loopback(
     }
 
     $content['files'].each | $loopback_file, $sz | {
-      notify { $loopback_file:
-        message => $sz,
-      }
       exec { $loopback_file:
         command => "/usr/bin/dd if=/dev/zero of=${base_dir}/${loopback_file} bs=1M count=${sz}",
         creates => "${base_dir}/${loopback_file}",
