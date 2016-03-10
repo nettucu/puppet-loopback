@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "UDEV loop-setup" > /tmp/loop-setup.log
+export >> /tmp/loop-setup.log 2>&1
