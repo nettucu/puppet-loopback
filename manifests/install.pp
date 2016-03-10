@@ -4,17 +4,17 @@ class loopback::install () {
       ensure => directory,
       owner  => 'root',
       group  => 'root',
-      mode   => '0775';
+      mode   => '0755';
     '/etc/udev/rules.d':
       ensure => directory,
       owner  => 'root',
       group  => 'root',
-      mode   => '0775';
+      mode   => '0755';
     '/etc/udev/scripts':
       ensure => directory,
       owner  => 'root',
       group  => 'root',
-      mode   => '0775';
+      mode   => '0755';
   }
 
   file {
@@ -31,7 +31,7 @@ class loopback::install () {
       path    => '/etc/udev/scripts/loop-setup',
       owner   => 'root',
       group   => 'root',
-      mode    => '775',
+      mode    => '755',
       source  => "puppet:///modules/${module_name}/udev/scripts/loop-setup",
       require => File['/etc/udev/scripts'];
     '50-loop':
