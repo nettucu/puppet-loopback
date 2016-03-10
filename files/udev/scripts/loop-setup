@@ -1,3 +1,9 @@
 #!/bin/bash
 echo "UDEV loop-setup" > /tmp/loop-setup.log
 export >> /tmp/loop-setup.log 2>&1
+
+datafile="$( basename $( losetup -l /dev/loop1 | grep '/dev/loop1' | awk '{ printf $NF }' ) )"o
+
+echo "datafle=${datafile}" >> /tmp/loop-setup.log
+
+echo "SYM_NAME=asm-${datafile}"
