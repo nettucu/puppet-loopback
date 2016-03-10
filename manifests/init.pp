@@ -70,6 +70,7 @@ class loopback(
       }
     }
 
+    $fileno = 0
     file { '/etc/systemd/scripts/loopback-setup':
       ensure  => present,
       owner   => 'root',

@@ -1,8 +1,9 @@
 #!/bin/bash
 
 echo "loopback-setup"
-echo base_dir<%= @base_dir %>
+echo base_dir=<%= @base_dir %>
 <% @content['files'].each do |f, sz| %>
   echo "f=<%= f %>, sz=<%= sz %>"
-  echo "losetup /dev/loop"
+  echo "losetup /dev/loop<%= @fileno %>"
+  <% @fileno = @fileno + 1 %>
 <% end %>
