@@ -25,7 +25,9 @@ class loopback::install () {
       group      => 'root',
       mode       => '0664',
       source     => "puppet:///modules/${module_name}/loopback.service",
-      require    => File['/etc/systemd/scripts'];
+      require    => File['/etc/systemd/scripts'],
+  }
+  /*
     'loop-setup':
       ensure  => present,
       path    => '/etc/udev/scripts/loop-setup',
@@ -43,7 +45,7 @@ class loopback::install () {
       source  => "puppet:///modules/${module_name}/udev/rules.d/50-loop.rules",
       require => File['/etc/udev/rules.d'];
   }
-
+  */
   exec { 'systemd-daemon-reload':
     command => '/usr/bin/systemctl daemon-reload',
     require => File['loopback.service'],

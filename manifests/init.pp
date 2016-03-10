@@ -78,5 +78,13 @@ class loopback(
       mode    => '0755',
       content => template("${module_name}/loopback-setup.erb"),
     }
+    $fileno = 0
+    file { '/etc/udev/rules.d/50-loop.rules':
+      ensure  => present,
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644',
+      content => template("${module_name}/udev/rules.d/50-loop.rules.erb"),
+    }
   }
 }
