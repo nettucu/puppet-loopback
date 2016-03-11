@@ -1,6 +1,6 @@
 <% @content['files'].each do |f, sz| %>
 #f=<%= f %>, sz=<%= sz %>
 #echo "losetup -P /dev/loop<%= @ff %> <%= f %>"
-KERNEL=="loop<%= @ff %>", SYMLINK+="<%= File.basename(f) %>"
+KERNEL=="loop<%= @ff %>", SYMLINK+="asm-<%= File.basename(f) %>"
 <% @ff = @ff + 1 %>
 <% end %>
