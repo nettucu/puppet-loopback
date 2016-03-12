@@ -4,7 +4,7 @@ DefaultDependencies=false
 ConditionFileIsExecutable=/etc/systemd/scripts/loopback-setup
 Before=local-fs.target
 After=systemd-udev-settle.service
-Required=systemd-udev-settle.service
+Wants=systemd-udev-settle.service
 
 [Service]
 Type=oneshot
